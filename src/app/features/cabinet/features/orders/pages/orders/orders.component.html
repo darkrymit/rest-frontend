@@ -1,0 +1,15 @@
+<mat-paginator
+  (page)="onPageChange($event)"
+  [length]="page.getTotalElements()"
+  [pageIndex]="page.getNumber()"
+  [pageSizeOptions]="pageSizes"
+  [pageSize]="page.getSize()"
+  [showFirstLastButtons]="true">
+</mat-paginator>
+<div class="item-container">
+  <app-order
+    *ngFor="let order of page.content"
+    [order]="order"
+  >
+  </app-order>
+</div>

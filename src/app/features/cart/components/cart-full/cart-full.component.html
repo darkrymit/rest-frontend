@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cart</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <ng-container *ngIf="!isCartEmpty() else empty">
+      <div class="item-list">
+        <app-cart-item-smart
+          (itemFullyLoaded)="onItemFullyLoaded($event)"
+          *ngFor="let item of cart.items"
+          [cartItem]="item"
+          class="item-list__item"
+        ></app-cart-item-smart>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="total">
+        <span class="total__label">Total:</span>
+        <span class="total__price">{{totalPrice | currency:'USD':'symbol-narrow'}}</span>
+      </div>
+    </ng-container>
+    <ng-template #empty>
+      <div class="empty-cart">
+        <mat-icon class="empty-cart__icon">shopping_cart</mat-icon>
+        <span class="empty-cart__text">Your cart is empty</span>
+      </div>
+    </ng-template>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button [disabled]="isCartEmpty()"
+            class="submit"
+            mat-raised-button
+            (click)="onCheckout()"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+      Checkout
+    </button>
+  </mat-card-actions>
+</mat-card>

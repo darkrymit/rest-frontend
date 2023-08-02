@@ -1,0 +1,17 @@
+<a [routerLink]="['/','certificates',certificate.id]"><img alt="Cart item image" class="image" src="../assets/default-image-gift-certificate.png"></a>
+<div class="info">
+  <a class="info__title" [routerLink]="['/','certificates',certificate.id]">{{certificate.name}}</a>
+</div>
+<div class="price">
+  <span class="price__label">Price:</span>
+  <span class="price__value mat-body-1 reset-margin">
+    {{orderItem.price | currency: 'USD':'symbol-narrow'}}</span>
+</div>
+<div class="quantity">
+  <span class="quantity__label">Quantity:</span>
+  <span class="quantity__value mat-body-1 reset-margin">{{orderItem.quantity}}</span>
+</div>
+<div class="sum">
+  <span class="sum__label">Sum:</span>
+  <span class="sum__value mat-body-1 reset-margin">{{orderItem.quantity * orderItem.price | currency: 'USD':'symbol-narrow'}}</span>
+</div>

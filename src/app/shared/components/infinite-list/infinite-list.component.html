@@ -1,0 +1,20 @@
+<div class="container">
+  <div
+    (scrolled)="onScrolled()"
+    [fromRoot]="true"
+    [infiniteScrollContainer]="scrollContainerSelector"
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="500"
+    [style.grid-template-columns]="gridTemplateColumns"
+    class="item-container"
+    infinite-scroll>
+    <ng-container *ngFor="let itemData of data">
+      <ng-template
+        *ngTemplateOutlet="item.template; context: { itemData: itemData }">
+      </ng-template>
+    </ng-container>
+  </div>
+  <div *ngIf="loading" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

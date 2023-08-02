@@ -1,0 +1,25 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use 'app/core/components/header/header.component' as header;
+@use 'app/core/components/footer/footer.component' as footer;
+
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+$rest-frontend-primary: mat.define-palette(mat.$indigo-palette);
+$rest-frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$rest-frontend-warn: mat.define-palette(mat.$red-palette);
+
+$rest-frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $rest-frontend-primary,
+    accent: $rest-frontend-accent,
+    warn: $rest-frontend-warn,
+  )
+));
+
+@include mat.all-component-themes($rest-frontend-theme);
+@include header.theme($rest-frontend-theme);
+@include footer.theme($rest-frontend-theme);

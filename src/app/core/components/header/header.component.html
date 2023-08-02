@@ -1,0 +1,58 @@
+<header>
+  <mat-toolbar color="primary">
+    <div [hidden]="searchFocused" class="brand-wrapper">
+      <a color="primary" href="/" mat-raised-button>
+        <mat-icon class="icon reset-margin" fontSet="material-symbols-rounded"
+        >polymer
+        </mat-icon
+        >
+      </a>
+    </div>
+    <div [hidden]="searchFocused" class="toggle-sidenav-wrapper flex-push-left">
+      <button (click)="sidenavToggle.emit()" color="primary" mat-raised-button>
+        <mat-icon class="icon reset-margin" fontSet="material-symbols-rounded"
+        >menu
+        </mat-icon
+        >
+      </button>
+    </div>
+    <div class="search-wrapper">
+      <app-header-search (focusChanged)="onFocusChanged($event)">
+      </app-header-search>
+    </div>
+    <div [hidden]="searchFocused" class="cart-wrapper flex-push-right">
+      <a color="primary" mat-raised-button routerLink="/cart">
+        <mat-icon
+          [matBadge]="cartLength$ | async"
+          class="icon reset-margin"
+          fontSet="material-symbols-rounded"
+          matBadgeColor="warn"
+          matBadgePosition="above"
+          matBadgeSize="small"
+        >shopping_cart
+        </mat-icon>
+      </a>
+    </div>
+    <div [hidden]="searchFocused" class="sign-wrapper">
+      <ng-container *ngIf="isAuthenticated$ | async; else signIn">
+        <button (click)="logout()" color="primary" mat-raised-button>
+          <mat-icon class="icon" fontSet="material-symbols-rounded"
+          >logout
+          </mat-icon
+          >
+          <span class="text">Sign out</span>
+        </button>
+      </ng-container>
+
+      <ng-template #signIn>
+        <button (click)="login()" color="primary" mat-raised-button>
+          <mat-icon class="icon" fontSet="material-symbols-rounded"
+          >login
+          </mat-icon
+          >
+          <span class="text">Sign in</span>
+        </button>
+      </ng-template>
+    </div>
+  </mat-toolbar>
+</header>

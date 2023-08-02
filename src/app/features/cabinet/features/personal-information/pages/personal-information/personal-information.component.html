@@ -1,0 +1,46 @@
+<mat-accordion multi>
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title> General data</mat-panel-title>
+      <mat-panel-description>
+        General data related to your account
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="general-data__grid">
+      <div class="general-data__grid__item">
+        <span class="general-data__grid__item__label mat-body-2"
+        >Email:</span>
+        <span class="general-data__grid__item__value mat-body-1"
+        >{{ user.email }}</span>
+      </div>
+      <div class="general-data__grid__item">
+        <span class="general-data__grid__item__label mat-body-2"
+        >First name:</span>
+        <span class="general-data__grid__item__value mat-body-1"
+        >{{ user.firstName }}</span>
+      </div>
+      <div class="general-data__grid__item">
+        <span class="general-data__grid__item__label mat-body-2"
+        >Last name:</span>
+        <span class="general-data__grid__item__value mat-body-1"
+        >{{ user.lastName }}</span>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Additional data</mat-panel-title>
+      <mat-panel-description>
+        Additional data related to your account
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="additional-data__grid">
+      <div class="additional-data__grid__item">
+        <span class="additional-data__grid__item__label mat-body-2"
+        >Creation date:</span>
+        <span class="additional-data__grid__item__value mat-body-1"
+        >{{ user.creationDate | date }}</span>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

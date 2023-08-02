@@ -1,0 +1,52 @@
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+
+  .image {
+    width: 100px;
+    height: 100px;
+    justify-self: start;
+  }
+
+  .info {
+    align-self: start;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #000;
+      text-decoration: none;
+    }
+
+    &__description {
+      font-size: 1rem;
+      text-align: justify;
+    }
+  }
+
+  .quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+  }
+
+  .price {
+    justify-self: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

@@ -1,0 +1,20 @@
+<h1>Displaying results for "{{ state.search }}"</h1>
+<ng-container *ngIf="!state.empty; else empty">
+  <span class="count"> Found {{ state.count }} results</span>
+  <app-infinite-list
+    (requireNextData)="onRequireNextData()"
+    [data]="state.data"
+    [gridTemplateColumns]="'repeat(auto-fill, minmax(250px, 1fr))'"
+    [last]="state.last"
+    [loading]="state.loading"
+    [scrollContainerSelector]="'#main-mat-sidenav-content'">
+    <ng-template appInfiniteListItem let-item="itemData">
+      <app-certificate-mini-card [data]="item"> </app-certificate-mini-card>
+    </ng-template>
+  </app-infinite-list>
+</ng-container>
+<ng-template #empty>
+  <div class="empty">
+    <span>No results found</span>
+  </div>
+</ng-template>

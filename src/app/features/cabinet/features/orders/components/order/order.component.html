@@ -1,0 +1,34 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div class="flex-start-container">
+      <span>
+        №{{order.id}}
+      </span>
+        <span>
+        {{order.creationDate | date:'shortDate'}}
+      </span>
+      </div>
+    </mat-panel-title>
+    <mat-panel-description>
+      <div class="flex-start-container">
+      <span
+      >
+        Total price
+      </span>
+        <span
+        >
+        {{totalPrice | currency:'USD':'symbol-narrow'}}
+      </span>
+      </div>
+      <mat-icon [matBadge]="order.items.length" matBadgeSize="small">redeem</mat-icon>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="item-container">
+    <app-order-item-smart
+      *ngFor="let item of order.items"
+      [orderItem]="item"
+    >
+    </app-order-item-smart>
+  </div>
+</mat-expansion-panel>

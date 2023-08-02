@@ -1,0 +1,45 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>
+      <a [routerLink]="['/','certificates', data.id]" class="mat-headline-6">
+        {{ data.name }}
+      </a>
+    </mat-card-title>
+    <mat-card-subtitle>{{ data.price }} &dollar;</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div class="flex-center">
+    <a [routerLink]="['/','certificates', data.id]">
+    <img
+      [style.max-width]="maxImageWidth"
+      alt="Photo of a Gift Certificate"
+      class="card__image"
+      mat-card-image
+      src="../../../../assets/default-image-gift-certificate.png"/>
+    </a>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <span class="mat-subtitle-2">Short description</span>
+    <p>
+      {{ data.description }}
+    </p>
+    <div>
+      <span *ngFor="let tag of data.tags"> #{{ tag.name }} </span>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button
+      (click)="onAddToCart()"
+      *ngIf="!inCart; else alreadyInCard"
+      mat-raised-button>
+      <mat-icon class="reset-margin"> shopping_cart</mat-icon>
+    </button>
+    <ng-template #alreadyInCard>
+      <button (click)="onAlreadyInCart()" mat-raised-button>
+        <mat-icon class="reset-margin"> check_circle</mat-icon>
+      </button>
+    </ng-template>
+  </mat-card-actions>
+</mat-card>

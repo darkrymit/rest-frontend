@@ -1,0 +1,13 @@
+<div *ngIf="error else processing">
+  <div>
+    <strong>Oops! An error occurred!</strong>
+    <p>
+      Please try again later.
+    </p>
+  </div>
+</div>
+<ng-template #processing>
+  <div class="alert alert-info">
+    <strong>Processing...</strong>
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+<mat-paginator
+  (page)="onPageChange($event)"
+  [length]="page.getTotalElements()"
+  [pageIndex]="page.getNumber()"
+  [pageSizeOptions]="pageSizes"
+  [pageSize]="page.getSize()"
+  [showFirstLastButtons]="true">
+</mat-paginator>
+<div class="item-container">
+  <app-certificate-mini-smart
+    *ngFor="let item of page.content"
+    [data]="item"
+  >
+  </app-certificate-mini-smart>
+</div>

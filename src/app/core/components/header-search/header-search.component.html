@@ -1,0 +1,43 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <mat-form-field color="primary" subscriptSizing="dynamic">
+    <mat-label>Search by name</mat-label>
+    <input
+      (focus)="onFocusIn()"
+      formControlName="search"
+      matInput
+      type="text"/>
+    <button color="primary" mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  <ng-container *ngIf="searchFocus">
+    <div class="preview">
+      <mat-card>
+        <mat-card-content>
+          <mat-nav-list *ngIf="previewCertificates.length > 0; else noResults">
+            <a
+              *ngFor="let cert of previewCertificates"
+              [routerLink]="['/','certificates', cert.id]"
+              mat-list-item>
+              <mat-icon
+                matListItemIcon
+                matTooltip="{{ cert.description }}"
+                matTooltipPosition="right"
+              >redeem
+              </mat-icon>
+              <span matListItemTitle>{{ cert.name }}</span>
+              <span matListItemLine>{{ cert.price }}</span>
+            </a>
+          </mat-nav-list>
+        </mat-card-content>
+
+        <ng-template #noResults>
+          <div class="no-results">
+            <mat-icon color="primary">sentiment_dissatisfied</mat-icon>
+            <span class="mat-body main-text"> No results found</span>
+          </div>
+        </ng-template>
+      </mat-card>
+    </div>
+  </ng-container>
+</form>

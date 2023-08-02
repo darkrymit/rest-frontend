@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Success order</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p> Your order has been successfully placed. </p>
+    <p> Your order number is: {{ orderState.id }} </p>
+    <p> Total price: {{ orderState.totalPrice | currency:'USD':'symbol-narrow' }} </p>
+    <p> Please check your cabinet for more information. </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button routerLink="/cabinet"> Cabinet </a>
+  </mat-card-actions>
+</mat-card>

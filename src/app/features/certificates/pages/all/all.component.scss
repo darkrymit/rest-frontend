@@ -1,0 +1,22 @@
+:host {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+app-certificate-mini-smart {
+  display: block;
+  max-width: 250px;
+}
+
+.item-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+}

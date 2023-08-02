@@ -1,0 +1,7 @@
+<app-certificate-mini-card
+  [data]="data"
+  [inCart]="(isInCart$ | async)!"
+  (addToCart)="onAddToCart($event)"
+  (alreadyInCart)="onAlreadyInCart($event)"
+>
+</app-certificate-mini-card>

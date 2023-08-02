@@ -1,0 +1,8 @@
+<app-certificate-full
+  [data]="(certificate$ | async)!"
+  [inCart]="(isInCart$|async)!"
+  (addToCart)="onAddToCart($event)"
+  (alreadyInCart)="onAlreadyInCart($event)"
+>
+</app-certificate-full>
+

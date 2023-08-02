@@ -1,0 +1,26 @@
+.general-data__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+  }
+}
+
+.additional-data__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+}

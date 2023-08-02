@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Create certificate
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" id="add-certificate-form">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput name="name" type="text" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Description</mat-label>
+        <textarea class="form__description" cdkTextareaAutosize formControlName="description" matInput maxlength="200" name="description" style="resize: none" required>
+
+        </textarea>
+      </mat-form-field>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Price</mat-label>
+        <input formControlName="price" matInput min="1" name="price" type="number" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Duration in days</mat-label>
+        <input formControlName="duration" matInput min="1" name="duration" type="number" required>
+      </mat-form-field>
+      <span class="mat-body-1 reset-margin">Tags</span>
+      <mat-divider></mat-divider>
+      <div class="tags-grid">
+        <ng-container formArrayName="tags">
+          <ng-container *ngFor="let tag of formTags.controls; let i = index">
+              <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Tag</mat-label>
+                <input [formControlName]="i" matInput name="tag" type="text">
+                <button mat-icon-button type="button" matSuffix (click)="removeTag(i)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+          </ng-container>
+        </ng-container>
+        <div class="add-tag__container">
+          <button mat-icon-button type="button" (click)="addTag()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button form="add-certificate-form" mat-raised-button type="submit" [disabled]="form.invalid">
+      Create certificate
+    </button>
+  </mat-card-actions>
+</mat-card>

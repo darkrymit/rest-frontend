@@ -1,0 +1,10 @@
+<ng-container *ngIf="certificate$ | async as certificate">
+  <app-cart-item
+    [cartItem]="cartItem"
+    [certificate]="certificate"
+    [quantity]="cartItem.quantity"
+    (remove)="onRemove($event)"
+    (updateQuantity)="onUpdateQuantity($event)"
+  >
+  </app-cart-item>
+</ng-container>

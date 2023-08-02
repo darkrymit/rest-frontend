@@ -1,0 +1,82 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+header {
+  mat-toolbar {
+    width: 100%;
+    padding: 2.75rem 1rem;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 20px 20px;
+
+    .brand-wrapper {
+      user-select: none;
+
+      a {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        padding: 0;
+
+        .icon {
+          width: 48px;
+          height: 48px;
+          font-size: 48px;
+        }
+      }
+    }
+
+    .toggle-sidenav-wrapper {
+      button {
+        border-radius: 20px;
+      }
+    }
+
+    .cart-wrapper {
+      a {
+        border-radius: 20px;
+      }
+    }
+
+    .sign-wrapper {
+      button {
+        border-radius: 20px;
+      }
+    }
+
+    .search-wrapper {
+      flex-grow: 1;
+    }
+  }
+}
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map.get($color-config, 'accent');
+
+  .icon-wrapper {
+    background-color: mat.get-color-from-palette($primary-palette, 500);
+
+    .inner-wrapper {
+      background-color: mat.get-color-from-palette($primary-palette, 900);
+
+      .icon {
+        color: mat.get-color-from-palette($primary-palette, 100);
+      }
+    }
+  }
+
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+}

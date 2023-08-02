@@ -1,0 +1,35 @@
+<a [routerLink]="['/','certificates',certificate.id]"><img alt="Cart item image" class="image" src="../assets/default-image-gift-certificate.png"></a>
+<div class="info">
+  <a class="info__title" [routerLink]="['/','certificates',certificate.id]">{{certificate.name}}</a>
+  <span class="info__description">
+    {{certificate.description}}
+  </span>
+</div>
+<div class="quantity">
+  <button class="quantity__increase-button" appLongClick mat-icon-button
+          (fastClick)="onIncreaseQuantity()"
+          (longClick)="onHoldIncreaseQuantity($event.tick)"
+          (longClickEnd)="emitUpdateQuantity()"
+          (fastClickEnd)="emitUpdateQuantity()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <span class="quantity__value mat-body-1 reset-margin">{{quantity}}</span>
+  <button class="quantity__decrease-button" appLongClick mat-icon-button
+          (fastClick)="onDecreaseQuantity()"
+          (longClick)="onHoldDecreaseQuantity($event.tick)"
+          (longClickEnd)="emitUpdateQuantity()"
+  >
+    <mat-icon>remove</mat-icon>
+  </button>
+</div>
+<div class="price">
+  <span>{{certificate.price | currency: 'USD':'symbol-narrow'}}</span>
+</div>
+<div class="delete">
+  <button mat-icon-button (click)="onRemove()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+

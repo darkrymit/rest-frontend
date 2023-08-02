@@ -1,0 +1,28 @@
+<nav>
+  <mat-nav-list>
+    <a (click)="side.close()" mat-list-item routerLink="/">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <span matListItemLine>Home</span>
+    </a>
+    <ng-container *ngIf="isAuthenticated$ | async">
+      <a (click)="side.close()" mat-list-item routerLink="/cabinet">
+        <mat-icon matListItemIcon>person</mat-icon>
+        <span matListItemLine>Cabinet</span>
+      </a>
+    </ng-container>
+    <a (click)="side.close()" mat-list-item routerLink="/certificates">
+      <mat-icon matListItemIcon>redeem</mat-icon>
+      <span matListItemLine>Certificates</span>
+    </a>
+    <ng-container *ngIf="isAdmin$|async">
+      <a (click)="side.close()" mat-list-item routerLink="/certificates/add">
+        <mat-icon matListItemIcon>add</mat-icon>
+        <span matListItemLine>Add certificate</span>
+      </a>
+    </ng-container>
+    <a (click)="side.close()" mat-list-item routerLink="/contact-us">
+      <mat-icon matListItemIcon>contact_support</mat-icon>
+      <span matListItemLine>Contact us</span>
+    </a>
+  </mat-nav-list>
+</nav>
